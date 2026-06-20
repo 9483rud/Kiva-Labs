@@ -1,14 +1,26 @@
 import React from 'react';
 import './App.css';
 
-export default function App() {
-  // Placeholder data for our study dashboard
-  const recentNotes = [
+// 1. Defining our types/interfaces
+interface Note {
+  id: number;
+  title: string;
+  date: string;
+}
+
+export default function App(): React.JSX.Element {
+  // 2. Applying the Note type to our array state/constant
+  const recentNotes: Note[] = [
     { id: 1, title: 'Chemistry - Acids & Bases', date: '2 hours ago' },
     { id: 2, title: 'World History - WW1 Timeline', date: 'Yesterday' }
   ];
 
-  const flashcardsDueCount = 15;
+  const flashcardsDueCount: number = 15;
+
+  // 3. Simple click handler function with type declaration
+  const handleQuickReview = (): void => {
+    alert('Starting Quick Review!');
+  };
 
   return (
     <div className="app-container">
@@ -32,9 +44,8 @@ export default function App() {
           </div>
           <p className="card-description">Master your terms with spaced repetition.</p>
           
-          {/* Quick Action inside the placeholder */}
           <div className="card-action-zone">
-            <button className="btn btn-primary" onClick={() => alert('Starting Quick Review!')}>
+            <button className="btn btn-primary" onClick={handleQuickReview}>
               ⚡ Quick Review
             </button>
           </div>
@@ -47,11 +58,10 @@ export default function App() {
           </div>
           <p className="card-description">Your digital notebook.</p>
           
-          {/* Preview Data List */}
           <div className="preview-list">
             <h3>Recent Notes</h3>
             <ul>
-              {recentNotes.map(note => (
+              {recentNotes.map((note: Note) => (
                 <li key={note.id} className="preview-item">
                   <span className="note-title">📝 {note.title}</span>
                   <span className="note-date">{note.date}</span>
