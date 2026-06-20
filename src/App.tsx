@@ -1,3 +1,4 @@
+import { FlaskIcon } from './components/Icons';
 import React, { useState } from 'react';
 import Sidebar, { SidebarItem } from './components/Sidebar';
 import Dashboard from './components/Dashboard';
