@@ -1,3 +1,4 @@
+import './SettingsView.css';
 import React from 'react';
 import { StudyModule } from '../App';
 
