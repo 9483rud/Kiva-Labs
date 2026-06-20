@@ -1,3 +1,4 @@
+import './Dashboard.css';
 import React from 'react';
 
 interface Note {
