@@ -1,11 +1,12 @@
-import './Sidebar.css';
 import React from 'react';
+import './Sidebar.css';
+import { KivaLogoIcon } from './Icons'; // Importing your logo
 
 export interface SidebarItem {
   id: string;
   label: string;
-  iconType: 'text' | 'image';
-  iconValue: string;
+  iconType: 'text' | 'svg';
+  iconValue: string | React.ComponentType<{ className?: string }>;
 }
 
 interface SidebarProps {
@@ -26,36 +27,44 @@ export default function Sidebar({
   return (
     <nav className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
       <div className="sidebar-header">
-        {!isCollapsed && <span className="sidebar-brand">Kiva Labs</span>}
+        {!isCollapsed ? (
+          <div className="sidebar-brand-container">
+            {/* Your native SVG logo component standing tall! */}
+            <KivaLogoIcon className="sidebar-logo-svg" />
+            <span className="sidebar-brand">Kiva Labs</span>
+          </div>
+        ) : (
+          <div className="sidebar-logo-collapsed">
+            <KivaLogoIcon className="sidebar-logo-svg" />
+          </div>
+        )}
         <button className="toggle-btn" onClick={() => setIsCollapsed(!isCollapsed)}>
           {isCollapsed ? '➡️' : '⬅️'}
         </button>
       </div>
 
       <ul className="sidebar-menu">
-        {options.map((option) => (
-          <li key={option.id}>
-            <button 
-              className={`menu-item ${activeTab === option.id ? 'active' : ''}`}
-              onClick={() => setActiveTab(option.id)}
-              title={option.label}
-            >
-              <span className="menu-icon-container">
-                {option.iconType === 'image' ? (
-                  <img 
-                    src={option.iconValue} 
-                    alt={`${option.label} icon`} 
-                    className="custom-menu-img"
-                    onError={(e) => { (e.target as HTMLImageElement).src = '🧪' }} 
-                  />
-                ) : (
-                  <span className="menu-emoji">{option.iconValue}</span>
-                )}
-              </span>
-              {!isCollapsed && <span className="menu-label">{option.label}</span>}
-            </button>
-          </li>
-        ))}
+        {options.map((option) => {
+          return (
+            <li key={option.id}>
+              <button 
+                className={`menu-item ${activeTab === option.id ? 'active' : ''}`}
+                onClick={() => setActiveTab(option.id)}
+                title={option.label}
+              >
+                <span className="menu-icon-container">
+                  {option.iconType === 'svg' ? (
+                    // Dynamic rendering of your custom SVG components
+                    <option.iconValue className="custom-menu-svg" />
+                  ) : (
+                    <span className="menu-emoji">{option.iconValue as string}</span>
+                  )}
+                </span>
+                {!isCollapsed && <span className="menu-label">{option.label}</span>}
+              </button>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );
