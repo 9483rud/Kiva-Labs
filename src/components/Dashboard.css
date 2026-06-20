@@ -1,0 +1,139 @@
+.app-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.logo-icon {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-glow));
+  padding: 4px 14px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(182, 36, 255, 0.4);
+}
+
+.logo-text {
+  font-size: 2.5rem;
+  margin: 0;
+  font-weight: 800;
+  color: white;
+}
+
+.text-highlight {
+  color: var(--neon-glow);
+  text-shadow: 0 0 15px rgba(226, 94, 255, 0.4);
+}
+
+.subtitle {
+  color: var(--text-muted);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid rgba(182, 36, 255, 0.12);
+  border-radius: 16px;
+  padding: 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(182, 36, 255, 0.15);
+  border-color: rgba(182, 36, 255, 0.3);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card-header h2 {
+  font-size: 1.4rem;
+  color: white;
+}
+
+.card-description {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.badge {
+  background-color: rgba(226, 94, 255, 0.15);
+  color: var(--neon-glow);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.card-action-zone {
+  margin-top: 20px;
+}
+
+.btn {
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-glow));
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: opacity 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.preview-list h3 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.preview-list ul {
+  list-style: none !important;
+}
+
+.preview-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.9rem;
+}
+
+.preview-item:last-child {
+  border-bottom: none;
+}
+
+.note-date {
+  color: var(--text-muted);
+}
