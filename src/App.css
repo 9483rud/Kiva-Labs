@@ -1,0 +1,164 @@
+/* Color Palette & Base Styles */
+:root {
+  --bg-dark: #0f0c1b;
+  --bg-card: #1b1530;
+  --text-main: #f3f0ff;
+  --text-muted: #a59ebc;
+  --neon-purple: #b624ff;
+  --neon-glow: #e25eff;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Header & Glowing Logo Styling */
+.app-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.logo-icon {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-glow));
+  padding: 5px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(182, 36, 255, 0.5);
+}
+
+.logo-text {
+  font-size: 3rem;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.text-highlight {
+  color: var(--neon-glow);
+  text-shadow: 0 0 15px rgba(226, 94, 255, 0.6);
+}
+
+.subtitle {
+  color: var(--text-muted);
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+/* Grid Layout */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* Card Styling */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid rgba(182, 36, 255, 0.15);
+  border-radius: 16px;
+  padding: 25px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(182, 36, 255, 0.15);
+  border-color: rgba(182, 36, 255, 0.4);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.card-description {
+  color: var(--text-muted);
+  margin: 0 0 20px 0;
+  font-size: 0.95rem;
+}
+
+/* Badge & Buttons */
+.badge {
+  background-color: rgba(226, 94, 255, 0.2);
+  color: var(--neon-glow);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.card-action-zone {
+  margin-top: 30px;
+}
+
+.btn {
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-glow));
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: opacity 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Preview Lists */
+.preview-list h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.preview-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.preview-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.9rem;
+}
+
+.preview-item:last-child {
+  border-bottom: none;
+}
+
+.note-date {
+  color: var(--text-muted);
+}
