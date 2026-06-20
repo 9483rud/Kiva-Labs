@@ -60,18 +60,20 @@ export default function App(): React.JSX.Element {
     );
   };
 
-  const renderActiveView = (): React.JSX.Element => {
-    switch (activeTab) {
-      case 'dashboard':
-        return <Dashboard />;
-      case 'settings':
-        return <SettingsView modules={modules} onToggleModule={toggleModule} />;
-      default: {
-        const option = modules.find(o => o.id === activeTab);
-        return <PlaceholderView title={option ? option.label : 'Unknown'} />;
-      }
+const renderActiveView = (): React.JSX.Element => {
+  switch (activeTab) {
+    case 'dashboard':
+      return <Dashboard />;
+    case 'settings':
+      return <SettingsView modules={modules} onToggleModule={toggleModule} />;
+    case 'integrations':
+      return <IntegrationsView />; // <-- Added this route line!
+    default: {
+      const option = modules.find(o => o.id === activeTab);
+      return <PlaceholderView title={option ? option.label : 'Unknown'} />;
     }
-  };
+  }
+};
 
   return (
     <div className="app-workspace">
