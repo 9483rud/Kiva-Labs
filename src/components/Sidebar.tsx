@@ -1,3 +1,4 @@
+import './Sidebar.css';
 import React from 'react';
 
 export interface SidebarItem {
