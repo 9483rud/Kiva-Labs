@@ -1,4 +1,4 @@
-# 🔬 Kiva Labs
+# Kiva Labs
 
 Kiva Labs is a highly customizable, distraction-free desktop study workspace engineered to centralize academic materials, focus tools, and classroom platform streams. Built using a modern frontend stack, it features a scalable modular architecture allowing users to tailor their study environment to their exact needs.
 
