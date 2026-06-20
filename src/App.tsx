@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Sidebar, { SidebarItem } from './components/Sidebar';
+import IntegrationsView from './components/IntegrationsView';
 import Dashboard from './components/Dashboard';
 import PlaceholderView from './components/PlaceholderView';
 import SettingsView from './components/SettingsView'; 
