@@ -66,12 +66,13 @@ Once running, the terminal will provide a local adress (usually http://localhost
     └── components
         ├── Icons.tsx         # Inline SVG vector asset factory
         ├── Sidebar.tsx       # Collapsible navigation menu component
-        ├── Sidebar.css       
         ├── Dashboard.tsx     # Home panel layout with preview widgets
-        ├── Dashboard.css     
         ├── IntegrationsView.tsx # 3rd party plugin integration manager
-        ├── IntegrationsView.css 
         ├── SettingsView.tsx  # Feature toggles Control Panel
-        ├── SettingsView.css  
-        └── PlaceholderView.tsx # Shared layout for modules under construction
+        ├── PlaceholderView.tsx # Shared layout for modules under construction
+        └── style 
+            ├── Sidebar.css       
+            ├── Dashboard.css     
+            ├── IntegrationsView.css 
+            └── SettingsView.css
 ```
