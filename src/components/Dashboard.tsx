@@ -1,6 +1,6 @@
 import './style/Dashboard.css';
 import React from 'react';
-import integrationsUrl from '../../arc/assets/Integrations.svg?url';
+import integrationsUrl from '../../src/assets/Integrations.svg?url';
 
 interface Note {
   id: number;
