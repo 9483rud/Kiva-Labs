@@ -1,5 +1,6 @@
 import './style/Dashboard.css';
 import React from 'react';
+import integrationsUrl from '../../arc/assets/Integrations.svg?url';
 
 interface Note {
   id: number;
@@ -19,7 +20,8 @@ export default function Dashboard(): React.JSX.Element {
     <div className="app-container">
       <header className="app-header">
         <div className="logo-container">
-          <span className="logo-icon">K</span>
+          {/* Use the new Integrations.svg asset as the logo image */}
+          <img src={integrationsUrl} alt="Kiva Labs logo" className="logo-icon" />
           <h1 className="logo-text">Kiva <span className="text-highlight">Labs</span></h1>
         </div>
         <p className="subtitle">Your distraction-free study space</p>
