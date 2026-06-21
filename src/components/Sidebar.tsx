@@ -1,5 +1,5 @@
 import React from 'react';
-import './Sidebar.css';
+import './style/Sidebar.css';
 import { KivaLogoIcon } from './Icons'; // Importing your logo
 
 export interface SidebarItem {
