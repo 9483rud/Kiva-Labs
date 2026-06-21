@@ -59,17 +59,17 @@ Once running, the terminal will provide a local adress (usually http://localhost
 ├── package.json
 ├── vite.config.ts
 └── src
-    ├── App.css               # Global theme variables & layout rules
-    ├── App.tsx               # Root component & central module state registry
-    ├── index.css             # Main Entry Reset CSS
-    ├── main.tsx              # Application mount controller
+    ├── App.css                  # Global theme variables & layout rules
+    ├── App.tsx                  # Root component & central module state registry
+    ├── index.css                # Main Entry Reset CSS
+    ├── main.tsx                 # Application mount controller
     └── components
-        ├── Icons.tsx         # Inline SVG vector asset factory
-        ├── Sidebar.tsx       # Collapsible navigation menu component
-        ├── Dashboard.tsx     # Home panel layout with preview widgets
+        ├── Icons.tsx            # Inline SVG vector asset factory
+        ├── Sidebar.tsx          # Collapsible navigation menu component
+        ├── Dashboard.tsx        # Home panel layout with preview widgets
         ├── IntegrationsView.tsx # 3rd party plugin integration manager
-        ├── SettingsView.tsx  # Feature toggles Control Panel
-        ├── PlaceholderView.tsx # Shared layout for modules under construction
+        ├── SettingsView.tsx     # Feature toggles Control Panel
+        ├── PlaceholderView.tsx  # Shared layout for modules under construction
         └── style 
             ├── Sidebar.css       
             ├── Dashboard.css     
