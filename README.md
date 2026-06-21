@@ -36,8 +36,8 @@ Make sure you have [Node.js](https://nodejs.org/) installed on your computer.
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git)
-cd YOUR_REPO_NAME
+git clone [https://github.com/9483rud/Kiva-Labs.git](https://github.com/9483rud/Kiva-Labs.git)
+cd Kiva-Labs
 ```
 
 ### 2. Install Project Dependencies
