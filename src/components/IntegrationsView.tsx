@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './IntegrationsView.css';
+import './style/IntegrationsView.css';
 
 interface Platform {
   id: string;
