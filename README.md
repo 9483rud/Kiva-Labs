@@ -1,11 +1,11 @@
 # Kiva Labs
 
-Kiva Labs is a highly customizable, distraction-free desktop study workspace engineered to centralize academic materials, focus tools, and classroom platform streams. Built using a modern frontend stack, it features a scalable modular architecture allowing users to tailor their study environment to their exact needs.
+Kiva Labs is a highly customizable, distraction-free desktop study workspace engineered to centralize academic materials, focus tools, and classroom platform streams. Built using a modern frontend framework, it provides a seamless, cyberpunk-inspired interface for students to manage their academic workload efficiently.
 
 ---
 
 ## 🎨 Design Philosophy & Aesthetic
-Kiva Labs utilizes a deep cyberpunk-inspired palette, fusing deep dark purples (`#0f0c1b`) with high-impact neon glows (`#e25eff`) and accents (`#00f0ff`). Scalable vector graphics (SVGs) ensure the brand assets and iconography remain crisp and clean at any window size.
+Kiva Labs utilizes a deep cyberpunk-inspired palette, fusing deep dark purples (`#0f0c1b`) with high-impact neon glows (`#e25eff`) and accents (`#00f0ff`). Scalable vector graphics (SVGs) ensure the interface remains crisp across all screen sizes. Every UI element is meticulously crafted to minimize cognitive load while maintaining visual impact.
 
 ---
 
@@ -36,12 +36,12 @@ Make sure you have [Node.js](https://nodejs.org/) installed on your computer.
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/9483rud/Kiva-Labs.git](https://github.com/9483rud/Kiva-Labs.git)
+git clone https://github.com/9483rud/Kiva-Labs.git
 cd Kiva-Labs
 ```
 
 ### 2. Install Project Dependencies
-This reads the configuration registry and sets up Teact, TypeScript, Vite:
+This reads the configuration registry and sets up React, TypeScript, Vite:
 ```bash
 npm install
 ```
@@ -51,7 +51,7 @@ npm install
 npm run dev
 ```
 
-Once running, the terminal will provide a local adress (usually http://localhost:5173). Open that URL in your web browser to interact with your live environment!
+Once running, the terminal will provide a local address (usually http://localhost:5173). Open that URL in your web browser to interact with your live environment!
 
 ## 📂 Project Architecture 
 ```text 
@@ -63,6 +63,8 @@ Once running, the terminal will provide a local adress (usually http://localhost
     ├── App.tsx                  # Root component & central module state registry
     ├── index.css                # Main Entry Reset CSS
     ├── main.tsx                 # Application mount controller
+    ├── assets
+    │   └── Integrations.svg     # Integration platform icons SVG asset
     └── components
         ├── Icons.tsx            # Inline SVG vector asset factory
         ├── Sidebar.tsx          # Collapsible navigation menu component
