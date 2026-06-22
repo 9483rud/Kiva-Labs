@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <rect width="512" height="512" rx="90" fill="#1b223c"/>
+  
+  <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="10" result="blur" />
+    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+  </filter>
+
+  <g transform="translate(256, 256)" filter="url(#glow)">
+    <circle r="50" fill="none" stroke="#76e5ec" stroke-width="18" />
+    <circle r="95" fill="none" stroke="#76e5ec" stroke-width="18" />
+    
+    <g id="teeth" fill="none" stroke="#76e5ec" stroke-width="18" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M -24,-93 L -18,-135 L 18,-135 L 24,-93" />
+      <path d="M 93,-24 L 135,-18 L 135,18 L 93,24" />
+      <path d="M 24,93 L 18,135 L -18,135 L -24,93" />
+      <path d="M -93,24 L -135,18 L -135,-18 L -93,-24" />
+      
+      <g transform="rotate(45)">
+        <path d="M -24,-93 L -18,-135 L 18,-135 L 24,-93" />
+        <path d="M 93,-24 L 135,-18 L 135,18 L 93,24" />
+        <path d="M 24,93 L 18,135 L -18,135 L -24,93" />
+        <path d="M -93,24 L -135,18 L -135,-18 L -93,-24" />
+      </g>
+    </g>
+  </g>
+</svg>
