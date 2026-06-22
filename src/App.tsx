@@ -8,14 +8,11 @@ import { FlaskIcon } from './components/Icons'; // 1. Imported your brand new cu
 import './App.css';
 
 // Define the shape of our modular system
-export interface StudyModule {
+export interface SidebarItem {
   id: string;
   label: string;
-  iconType: 'text' | 'svg'; // Changed 'image' to 'svg' to support vectors
-  // 2. Updated to accept either a regular string or a React component type for custom SVGs
+  iconType: 'text' | 'svg';
   iconValue: string | React.ComponentType<{ className?: string }>;
-  enabled: boolean;
-  description: string;
 }
 
 export default function App(): React.JSX.Element {
