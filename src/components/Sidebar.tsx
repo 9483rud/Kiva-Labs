@@ -54,8 +54,10 @@ export default function Sidebar({
               >
                 <span className="menu-icon-container">
                   {option.iconType === 'svg' ? (
-                    // Dynamic rendering of your custom SVG components
-                    <option.iconValue className="custom-menu-svg" />
+                    (() => {
+                      const IconComponent = option.iconValue as React.ComponentType<{ className?: string }>;
+                      return <IconComponent className="custom-menu-svg" />;
+                    })()
                   ) : (
                     <span className="menu-emoji">{option.iconValue as string}</span>
                   )}
