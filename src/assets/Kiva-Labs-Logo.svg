@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 393 500"
+   width="393"
+   height="500"
+   version="1.1"
+   id="svg10"
+   sodipodi:docname="Kiva-Labs-Logo.svg"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     id="namedview10"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.5625"
+     inkscape:cx="170.88"
+     inkscape:cy="248.32"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg10" />
+  <rect
+     width="512"
+     height="512"
+     rx="90"
+     fill="#1b223c"
+     id="rect1"
+     style="fill:#1b223c;fill-opacity:0"
+     x="0"
+     y="0" />
+  <filter
+     id="glow"
+     x="-0.12222222"
+     y="-0.12222222"
+     width="1.2444444"
+     height="1.2444444">
+    <feGaussianBlur
+       stdDeviation="10"
+       result="blur"
+       id="feGaussianBlur1" />
+    <feComposite
+       in="SourceGraphic"
+       in2="blur"
+       operator="over"
+       id="feComposite1" />
+  </filter>
+  <g
+     transform="translate(256,256)"
+     filter="url(#glow)"
+     id="g10" />
+  <text
+     xml:space="preserve"
+     style="font-size:682.349px;writing-mode:lr-tb;direction:ltr;fill:#01fcff;fill-opacity:1;stroke-width:56.8626"
+     x="-66.968933"
+     y="497.43585"
+     id="text12"
+     transform="scale(0.99487075,1.0051557)"><tspan
+       sodipodi:role="line"
+       id="tspan12"
+       x="-66.968933"
+       y="497.43585"
+       style="fill:#01fcff;fill-opacity:1;stroke-width:56.8626">K</tspan></text>
+</svg>

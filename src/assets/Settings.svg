@@ -1,26 +1,110 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <rect width="512" height="512" rx="90" fill="#1b223c"/>
-  
-  <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
-    <feGaussianBlur stdDeviation="10" result="blur" />
-    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 512 512"
+   width="100%"
+   height="100%"
+   version="1.1"
+   id="svg10"
+   sodipodi:docname="Settings.svg"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     id="namedview10"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.5625"
+     inkscape:cx="256"
+     inkscape:cy="256"
+     inkscape:window-width="1920"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg10" />
+  <rect
+     width="512"
+     height="512"
+     rx="90"
+     fill="#1b223c"
+     id="rect1"
+     style="fill:#1b223c;fill-opacity:0" />
+  <filter
+     id="glow"
+     x="-0.12222222"
+     y="-0.12222222"
+     width="1.2444444"
+     height="1.2444444">
+    <feGaussianBlur
+       stdDeviation="10"
+       result="blur"
+       id="feGaussianBlur1" />
+    <feComposite
+       in="SourceGraphic"
+       in2="blur"
+       operator="over"
+       id="feComposite1" />
   </filter>
-
-  <g transform="translate(256, 256)" filter="url(#glow)">
-    <circle r="50" fill="none" stroke="#76e5ec" stroke-width="18" />
-    <circle r="95" fill="none" stroke="#76e5ec" stroke-width="18" />
-    
-    <g id="teeth" fill="none" stroke="#76e5ec" stroke-width="18" stroke-linejoin="round" stroke-linecap="round">
-      <path d="M -24,-93 L -18,-135 L 18,-135 L 24,-93" />
-      <path d="M 93,-24 L 135,-18 L 135,18 L 93,24" />
-      <path d="M 24,93 L 18,135 L -18,135 L -24,93" />
-      <path d="M -93,24 L -135,18 L -135,-18 L -93,-24" />
-      
-      <g transform="rotate(45)">
-        <path d="M -24,-93 L -18,-135 L 18,-135 L 24,-93" />
-        <path d="M 93,-24 L 135,-18 L 135,18 L 93,24" />
-        <path d="M 24,93 L 18,135 L -18,135 L -24,93" />
-        <path d="M -93,24 L -135,18 L -135,-18 L -93,-24" />
+  <g
+     transform="translate(256, 256)"
+     filter="url(#glow)"
+     id="g10">
+    <circle
+       r="50"
+       fill="none"
+       stroke="#76e5ec"
+       stroke-width="18"
+       id="circle1" />
+    <circle
+       r="95"
+       fill="none"
+       stroke="#76e5ec"
+       stroke-width="18"
+       id="circle2" />
+    <g
+       id="teeth"
+       fill="none"
+       stroke="#76e5ec"
+       stroke-width="18"
+       stroke-linejoin="round"
+       stroke-linecap="round">
+      <path
+         d="M -24,-93 L -18,-135 L 18,-135 L 24,-93"
+         id="path2" />
+      <path
+         d="M 93,-24 L 135,-18 L 135,18 L 93,24"
+         id="path3" />
+      <path
+         d="M 24,93 L 18,135 L -18,135 L -24,93"
+         id="path4" />
+      <path
+         d="M -93,24 L -135,18 L -135,-18 L -93,-24"
+         id="path5" />
+      <g
+         transform="rotate(45)"
+         id="g9">
+        <path
+           d="M -24,-93 L -18,-135 L 18,-135 L 24,-93"
+           id="path6" />
+        <path
+           d="M 93,-24 L 135,-18 L 135,18 L 93,24"
+           id="path7" />
+        <path
+           d="M 24,93 L 18,135 L -18,135 L -24,93"
+           id="path8" />
+        <path
+           d="M -93,24 L -135,18 L -135,-18 L -93,-24"
+           id="path9" />
       </g>
     </g>
   </g>
