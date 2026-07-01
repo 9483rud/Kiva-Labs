@@ -5,7 +5,7 @@ import { KivaLogoIcon } from './Icons'; // Importing your logo
 export interface SidebarItem {
   id: string;
   label: string;
-  iconType: 'text' | 'svg';
+  iconType: 'text' | 'svg' | 'image';
   iconValue: string | React.ComponentType<{ className?: string }>;
 }
 
@@ -58,6 +58,8 @@ export default function Sidebar({
                       const IconComponent = option.iconValue as React.ComponentType<{ className?: string }>;
                       return <IconComponent className="custom-menu-svg" />;
                     })()
+                  ) : option.iconType === 'image' ? (
+                    <img src={option.iconValue as string} alt={`${option.label} icon`} className="custom-menu-img" />
                   ) : (
                     <span className="menu-emoji">{option.iconValue as string}</span>
                   )}

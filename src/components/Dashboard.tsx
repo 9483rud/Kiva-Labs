@@ -1,6 +1,6 @@
 import './style/Dashboard.css';
 import React from 'react';
-import integrationsUrl from '../assets/Settings.svg?url';
+import integrationsUrl from '../assets/Kiva-Labs-Logo.svg';
 
 interface Note {
   id: number;

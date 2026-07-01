@@ -5,13 +5,14 @@ import Dashboard from './components/Dashboard';
 import PlaceholderView from './components/PlaceholderView';
 import SettingsView from './components/SettingsView'; 
 import { FlaskIcon } from './components/Icons'; // 1. Imported your brand new custom SVG file!
+import settingsIconUrl from './assets/Settings.svg?url';
 import './App.css';
 
 // Define the shape of our modular system
 export interface SidebarItem {
   id: string;
   label: string;
-  iconType: 'text' | 'svg';
+  iconType: 'text' | 'svg' | 'image';
   iconValue: string | React.ComponentType<{ className?: string }>;
 }
 
@@ -28,7 +29,7 @@ export default function App(): React.JSX.Element {
     { id: 'timer', label: 'Timer', iconType: 'text', iconValue: '⏱️', enabled: true, description: 'Focus and Pomodoro interval timer.' },
     // 3. Replaced your old placeholder image with the clean native vector!
     { id: 'integrations', label: 'Integrations', iconType: 'svg', iconValue: FlaskIcon, enabled: true, description: 'External API plugins.' },
-    { id: 'settings', label: 'Settings', iconType: 'text', iconValue: '⚙️', enabled: true, description: 'Configure app features.' }
+    { id: 'settings', label: 'Settings', iconType: 'image', iconValue: settingsIconUrl, enabled: true, description: 'Configure app features.' }
   ]);
 
   // Filter our options dynamically based on what's enabled
