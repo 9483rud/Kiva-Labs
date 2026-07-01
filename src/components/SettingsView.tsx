@@ -7,6 +7,27 @@ interface SettingsViewProps {
   onToggleModule: (id: string) => void;
 }
 
+function renderModuleIcon(mod: StudyModule): React.ReactNode {
+  if (mod.iconType === 'text') {
+    return mod.iconValue as string;
+  }
+  if (mod.iconType === 'svg') {
+    return React.createElement(mod.iconValue as React.ComponentType<{ className?: string }>, {
+      className: 'settings-icon'
+    });
+  }
+  if (mod.iconType === 'image') {
+    return (
+      <img
+        src={mod.iconValue as string}
+        alt={`${mod.label} icon`}
+        className="settings-icon"
+      />
+    );
+  }
+  return '🧪';
+}
+
 export default function SettingsView({ modules, onToggleModule }: SettingsViewProps): React.JSX.Element {
   return (
     <div className="app-container">
@@ -26,7 +47,7 @@ export default function SettingsView({ modules, onToggleModule }: SettingsViewPr
               <div key={mod.id} className={`toggle-row ${!mod.enabled ? 'disabled-row' : ''}`}>
                 <div className="toggle-info">
                   <span className="toggle-icon-indicator">
-                    {mod.iconType === 'text' ? mod.iconValue : '🧪'}
+                    {renderModuleIcon(mod)}
                   </span>
                   <div>
                     <h4>{mod.label} {isCore && <span className="core-tag">Core</span>}</h4>

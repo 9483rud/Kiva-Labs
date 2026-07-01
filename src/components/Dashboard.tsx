@@ -14,7 +14,16 @@ export default function Dashboard(): React.JSX.Element {
     { id: 2, title: 'World History - WW1 Timeline', date: 'Yesterday' }
   ];
 
-  const flashcardsDueCount: number = 15;
+  const reviewStats = {
+    dueToday: 15,
+    tomorrow: 28,
+    streak: 7,
+    totalCards: 120
+  };
+
+  const startReview = (): void => {
+    alert('Starting your spaced repetition review session!');
+  };
 
   return (
     <div className="app-container">
@@ -28,15 +37,29 @@ export default function Dashboard(): React.JSX.Element {
       </header>
 
       <main className="dashboard-grid">
-        <section className="card flashcard-card">
+        <section className="card review-card">
           <div className="card-header">
-            <h2>Flashcards</h2>
-            <span className="badge">{flashcardsDueCount} Due</span>
+            <h2>Spaced Repetition</h2>
+            <span className="badge">{reviewStats.dueToday} Due</span>
           </div>
-          <p className="card-description">Master your terms with spaced repetition.</p>
+          <p className="card-description">Review the cards due today and keep your learning streak alive.</p>
+          <div className="review-stats-grid">
+            <div className="review-stat">
+              <span className="review-stat-value">{reviewStats.tomorrow}</span>
+              <span className="review-stat-label">Tomorrow</span>
+            </div>
+            <div className="review-stat">
+              <span className="review-stat-value">{reviewStats.streak}</span>
+              <span className="review-stat-label">Day Streak</span>
+            </div>
+            <div className="review-stat">
+              <span className="review-stat-value">{reviewStats.totalCards}</span>
+              <span className="review-stat-label">Total Cards</span>
+            </div>
+          </div>
           <div className="card-action-zone">
-            <button className="btn btn-primary" onClick={() => alert('Starting Quick Review!')}>
-              ⚡ Quick Review
+            <button className="btn btn-primary" onClick={startReview}>
+              Start Review
             </button>
           </div>
         </section>

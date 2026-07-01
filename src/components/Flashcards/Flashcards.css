@@ -1,0 +1,113 @@
+.flashcards-page {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.view-header {
+  margin-bottom: 28px;
+}
+
+.flashcards-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.stats-card {
+  background-color: var(--bg-card);
+  border: 1px solid rgba(182, 36, 255, 0.12);
+  border-radius: 16px;
+  padding: 22px;
+}
+
+.stats-label {
+  display: block;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.stats-value {
+  display: block;
+  color: white;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.upcoming-card,
+.summary-card,
+.review-card,
+.review-session-card {
+  background-color: var(--bg-card);
+  border: 1px solid rgba(182, 36, 255, 0.12);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.upcoming-list {
+  display: grid;
+  gap: 12px;
+}
+
+.upcoming-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+}
+
+.upcoming-due {
+  color: var(--neon-glow);
+  font-weight: 700;
+}
+
+.review-card-body {
+  display: grid;
+  gap: 18px;
+}
+
+.review-card-status {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.review-card-content {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.review-card-label {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.review-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn.btn-link {
+  background: transparent;
+  color: var(--text-muted);
+  border: none;
+  padding: 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btn.btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+.card-description {
+  margin-bottom: 20px;
+}

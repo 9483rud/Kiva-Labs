@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Sidebar, { SidebarItem } from './components/Sidebar';
+import FlashcardsHomeView from './components/Flashcards/FlashcardsHomeView';
 import IntegrationsView from './components/IntegrationsView';
 import Dashboard from './components/Dashboard';
 import PlaceholderView from './components/PlaceholderView';
@@ -9,11 +10,9 @@ import settingsIconUrl from './assets/Settings.svg?url';
 import './App.css';
 
 // Define the shape of our modular system
-export interface SidebarItem {
-  id: string;
-  label: string;
-  iconType: 'text' | 'svg' | 'image';
-  iconValue: string | React.ComponentType<{ className?: string }>;
+export interface StudyModule extends SidebarItem {
+  enabled: boolean;
+  description: string;
 }
 
 export default function App(): React.JSX.Element {
@@ -62,10 +61,12 @@ const renderActiveView = (): React.JSX.Element => {
   switch (activeTab) {
     case 'dashboard':
       return <Dashboard />;
+    case 'flashcards':
+      return <FlashcardsHomeView />;
     case 'settings':
       return <SettingsView modules={modules} onToggleModule={toggleModule} />;
     case 'integrations':
-      return <IntegrationsView />; // <-- Added this route line!
+      return <IntegrationsView />;
     default: {
       const option = modules.find(o => o.id === activeTab);
       return <PlaceholderView title={option ? option.label : 'Unknown'} />;
