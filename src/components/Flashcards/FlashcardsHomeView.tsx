@@ -1,51 +1,16 @@
 import React, { useMemo, useState } from 'react';
 import FlashcardsReviewView from './FlashcardsReviewView';
+import { flashcardsData, getFlashcardStats, getUpcomingCards } from './flashcardsData';
 import './Flashcards.css';
 
-interface Flashcard {
-  id: number;
-  front: string;
-  back: string;
-  dueIn: 'Today' | 'Tomorrow';
-}
-
 export default function FlashcardsHomeView(): React.JSX.Element {
-  const cards = useMemo<Flashcard[]>(
-    () => [
-      {
-        id: 1,
-        front: 'What is spaced repetition?',
-        back: 'A learning technique that reviews cards at increasing intervals to improve long-term memory.',
-        dueIn: 'Today'
-      },
-      {
-        id: 2,
-        front: 'What is active recall?',
-        back: 'Actively retrieving information from memory instead of just rereading notes.',
-        dueIn: 'Today'
-      },
-      {
-        id: 3,
-        front: 'When should you review a forgotten card?',
-        back: 'Review it again sooner and repeat it in shorter intervals until it sticks.',
-        dueIn: 'Tomorrow'
-      },
-      {
-        id: 4,
-        front: 'How can small daily sessions help?',
-        back: 'Frequent short reviews build consistency and prevent overload.',
-        dueIn: 'Tomorrow'
-      }
-    ],
-    []
-  );
+  const cards = useMemo(() => flashcardsData, []);
 
   const [isReviewing, setIsReviewing] = useState(false);
   const [completedReview, setCompletedReview] = useState<number | null>(null);
 
-  const dueToday = cards.filter((card) => card.dueIn === 'Today').length;
-  const tomorrow = cards.filter((card) => card.dueIn === 'Tomorrow').length;
-  const totalCards = cards.length;
+  const { dueToday, tomorrow, totalCards } = getFlashcardStats(cards);
+  const upcomingCards = getUpcomingCards(cards);
 
   const startReview = (): void => {
     setCompletedReview(null);
@@ -101,7 +66,7 @@ export default function FlashcardsHomeView(): React.JSX.Element {
               <h2>Next cards</h2>
             </div>
             <div className="upcoming-list">
-              {cards.slice(0, 4).map((card) => (
+              {upcomingCards.map((card) => (
                 <div key={card.id} className="upcoming-item">
                   <span className="upcoming-due">{card.dueIn}</span>
                   <span>{card.front}</span>

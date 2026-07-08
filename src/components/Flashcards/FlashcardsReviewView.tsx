@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
+import { Flashcard } from './flashcardsData';
 import './Flashcards.css';
-
-interface Flashcard {
-  id: number;
-  front: string;
-  back: string;
-  dueIn: 'Today' | 'Tomorrow';
-}
 
 interface FlashcardsReviewViewProps {
   cards: Flashcard[];

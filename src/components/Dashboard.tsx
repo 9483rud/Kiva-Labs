@@ -1,6 +1,7 @@
 import './style/Dashboard.css';
-import React from 'react';
+import React, { useMemo } from 'react';
 import integrationsUrl from '../assets/Kiva-Labs-Logo.svg';
+import { flashcardsData, getFlashcardStats, getUpcomingCards } from './Flashcards/flashcardsData';
 
 interface Note {
   id: number;
@@ -14,12 +15,9 @@ export default function Dashboard(): React.JSX.Element {
     { id: 2, title: 'World History - WW1 Timeline', date: 'Yesterday' }
   ];
 
-  const reviewStats = {
-    dueToday: 15,
-    tomorrow: 28,
-    streak: 7,
-    totalCards: 120
-  };
+  const cards = useMemo(() => flashcardsData, []);
+  const reviewStats = useMemo(() => getFlashcardStats(cards), [cards]);
+  const upcomingCards = useMemo(() => getUpcomingCards(cards), [cards]);
 
   const startReview = (): void => {
     alert('Starting your spaced repetition review session!');
@@ -49,13 +47,24 @@ export default function Dashboard(): React.JSX.Element {
               <span className="review-stat-label">Tomorrow</span>
             </div>
             <div className="review-stat">
-              <span className="review-stat-value">{reviewStats.streak}</span>
-              <span className="review-stat-label">Day Streak</span>
+              <span className="review-stat-value">{reviewStats.dueToday}</span>
+              <span className="review-stat-label">Due Today</span>
             </div>
             <div className="review-stat">
               <span className="review-stat-value">{reviewStats.totalCards}</span>
               <span className="review-stat-label">Total Cards</span>
             </div>
+          </div>
+          <div className="preview-list">
+            <h3>Upcoming Cards</h3>
+            <ul>
+              {upcomingCards.map((card) => (
+                <li key={card.id} className="preview-item">
+                  <span className="note-title">🎴 {card.front}</span>
+                  <span className="note-date">{card.dueIn}</span>
+                </li>
+              ))}
+            </ul>
           </div>
           <div className="card-action-zone">
             <button className="btn btn-primary" onClick={startReview}>
