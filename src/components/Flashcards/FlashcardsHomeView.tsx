@@ -1,13 +1,12 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import FlashcardsReviewView from './FlashcardsReviewView';
-import { DEFAULT_FLASHCARDS, Flashcard, getFlashcardStats, getUpcomingCards, loadFlashcards, saveFlashcards } from './flashcardsData';
+import FlashcardsSummarySection from './FlashcardsSummarySection';
+import FlashcardsStartReviewCard from './FlashcardsStartReviewCard';
+import FlashcardsWeeklyChart from './FlashcardsWeeklyChart';
+import FlashcardsManageCardsSection from './FlashcardsManageCardsSection';
+import { DEFAULT_FLASHCARDS, Flashcard, getFlashcardStats, loadFlashcards, saveFlashcards } from './flashcardsData';
+import type { NewCardFormState } from './flashcardsTypes';
 import './Flashcards.css';
-
-interface NewCardFormState {
-  front: string;
-  back: string;
-  dueIn: Flashcard['dueIn'];
-}
 
 const STREAK_STORAGE_KEY = 'flashcards-streak';
 const STUDY_HISTORY_STORAGE_KEY = 'flashcards-study-history';
@@ -88,7 +87,6 @@ export default function FlashcardsHomeView(): React.JSX.Element {
   }, [cards]);
 
   const { dueToday, tomorrow, totalCards } = getFlashcardStats(cards);
-  const upcomingCards = getUpcomingCards(cards);
   const { streak } = streakState;
 
   useEffect(() => {
@@ -190,106 +188,20 @@ export default function FlashcardsHomeView(): React.JSX.Element {
 
       {!isReviewing ? (
         <>
-          <section className="flashcards-summary-grid">
-            <div className="stats-card">
-              <span className="stats-label">Due Today</span>
-              <span className="stats-value">{dueToday}</span>
-            </div>
-            <div className="stats-card">
-              <span className="stats-label">Due Tomorrow</span>
-              <span className="stats-value">{tomorrow}</span>
-            </div>
-            <div className="stats-card">
-              <span className="stats-label">Current Streak</span>
-              <span className="stats-value">{streak}</span>
-            </div>
-            <div className="stats-card">
-              <span className="stats-label">Total Cards</span>
-              <span className="stats-value">{totalCards}</span>
-            </div>
-          </section>
+          <FlashcardsSummarySection dueToday={dueToday} tomorrow={tomorrow} streak={streak} totalCards={totalCards} />
 
-          <section className="card review-card">
-            <div className="card-header">
-              <h2>Ready to review?</h2>
-              <span className="badge">{dueToday} cards due</span>
-            </div>
-            <p className="card-description">
-              Start a focused spaced repetition session to lock in the concepts you review today.
-            </p>
-            <div className="card-action-zone">
-              <button className="btn btn-primary" onClick={startReview} disabled={cards.length === 0}>
-                {cards.length === 0 ? 'Add cards to start' : 'Start Review'}
-              </button>
-            </div>
-          </section>
+          <FlashcardsStartReviewCard dueToday={dueToday} cardsLength={cards.length} onStartReview={startReview} />
 
-          <section className="card weekly-chart-card">
-            <div className="card-header">
-              <h2>Weekly study graph</h2>
-            </div>
-            <div className="weekly-chart" aria-label="Weekly study chart">
-              {weeklyStudyData.map((entry) => (
-                <div key={entry.day} className="weekly-chart-column">
-                  <div className="weekly-chart-bar-wrapper">
-                    <div className="weekly-chart-bar" style={{ height: `${entry.height}%` }} />
-                  </div>
-                  <span className="weekly-chart-label">{entry.label}</span>
-                  <span className="weekly-chart-value">{entry.count}</span>
-                </div>
-              ))}
-            </div>
-          </section>
+          <FlashcardsWeeklyChart weeklyStudyData={weeklyStudyData} />
 
-          <section className="card upcoming-card">
-            <div className="card-header">
-              <h2>Your cards</h2>
-              <button className="btn btn-secondary btn-inline" onClick={() => setIsAddingCard((value) => !value)}>
-                {isAddingCard ? 'Cancel' : 'Add Card'}
-              </button>
-            </div>
-
-            {isAddingCard && (
-              <div className="add-card-form">
-                <input
-                  className="card-input"
-                  placeholder="Question"
-                  value={newCard.front}
-                  onChange={(event) => setNewCard((current) => ({ ...current, front: event.target.value }))}
-                />
-                <textarea
-                  className="card-textarea"
-                  placeholder="Answer"
-                  value={newCard.back}
-                  onChange={(event) => setNewCard((current) => ({ ...current, back: event.target.value }))}
-                />
-                <select
-                  className="card-select"
-                  value={newCard.dueIn}
-                  onChange={(event) => setNewCard((current) => ({ ...current, dueIn: event.target.value as Flashcard['dueIn'] }))}
-                >
-                  <option value="Today">Today</option>
-                  <option value="Tomorrow">Tomorrow</option>
-                </select>
-                <button className="btn btn-primary" onClick={handleCreateCard}>
-                  Save Card
-                </button>
-              </div>
-            )}
-
-            <div className="upcoming-list">
-              {cards.length === 0 ? (
-                <p className="empty-state">No cards yet. Add your first flashcard to get started.</p>
-              ) : (
-                cards.map((card) => (
-                  <div key={card.id} className="upcoming-item">
-                    <span className="upcoming-due">{card.dueIn}</span>
-                    <span>{card.front}</span>
-                  </div>
-                ))
-              )}
-            </div>
-          </section>
+          <FlashcardsManageCardsSection
+            cards={cards}
+            isAddingCard={isAddingCard}
+            newCard={newCard}
+            onToggleAddCard={() => setIsAddingCard((value) => !value)}
+            onNewCardChange={(updates) => setNewCard((current) => ({ ...current, ...updates }))}
+            onCreateCard={handleCreateCard}
+          />
 
           {completedReview !== null && (
             <section className="card summary-card">
