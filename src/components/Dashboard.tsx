@@ -1,7 +1,7 @@
 import './style/Dashboard.css';
-import React, { useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import integrationsUrl from '../assets/Kiva-Labs-Logo.svg';
-import { flashcardsData, getFlashcardStats, getUpcomingCards } from './Flashcards/flashcardsData';
+import { DEFAULT_FLASHCARDS, Flashcard, getFlashcardStats, loadFlashcards } from './Flashcards/flashcardsData';
 
 interface Note {
   id: number;
@@ -15,9 +15,23 @@ export default function Dashboard(): React.JSX.Element {
     { id: 2, title: 'World History - WW1 Timeline', date: 'Yesterday' }
   ];
 
-  const cards = useMemo(() => flashcardsData, []);
-  const reviewStats = useMemo(() => getFlashcardStats(cards), [cards]);
-  const upcomingCards = useMemo(() => getUpcomingCards(cards), [cards]);
+  const [cards, setCards] = useState<Flashcard[]>(DEFAULT_FLASHCARDS);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    loadFlashcards().then((loadedCards) => {
+      if (isMounted) {
+        setCards(loadedCards);
+      }
+    });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const reviewStats = getFlashcardStats(cards);
 
   const startReview = (): void => {
     alert('Starting your spaced repetition review session!');
@@ -54,17 +68,6 @@ export default function Dashboard(): React.JSX.Element {
               <span className="review-stat-value">{reviewStats.totalCards}</span>
               <span className="review-stat-label">Total Cards</span>
             </div>
-          </div>
-          <div className="preview-list">
-            <h3>Upcoming Cards</h3>
-            <ul>
-              {upcomingCards.map((card) => (
-                <li key={card.id} className="preview-item">
-                  <span className="note-title">🎴 {card.front}</span>
-                  <span className="note-date">{card.dueIn}</span>
-                </li>
-              ))}
-            </ul>
           </div>
           <div className="card-action-zone">
             <button className="btn btn-primary" onClick={startReview}>

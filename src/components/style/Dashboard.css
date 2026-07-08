@@ -66,6 +66,21 @@
   border-color: rgba(182, 36, 255, 0.3);
 }
 
+.review-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(182, 36, 255, 0.16), rgba(226, 94, 255, 0.08));
+  box-shadow: 0 16px 40px rgba(182, 36, 255, 0.16);
+}
+
+.review-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+  pointer-events: none;
+}
+
 .card-header {
   display: flex;
   justify-content: space-between;
@@ -95,6 +110,35 @@
 
 .card-action-zone {
   margin-top: 20px;
+}
+
+.review-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0 8px;
+}
+
+.review-stat {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px 10px;
+  text-align: center;
+}
+
+.review-stat-value {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+}
+
+.review-stat-label {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
 }
 
 .btn {
