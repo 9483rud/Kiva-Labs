@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Sidebar, { SidebarItem } from './components/Sidebar';
 import FlashcardsHomeView from './components/Flashcards/FlashcardsHomeView';
+import NotesHomeView from './components/Notes/NotesHomeView';
 import IntegrationsView from './components/IntegrationsView';
 import Dashboard from './components/Dashboard';
 import PlaceholderView from './components/PlaceholderView';
@@ -63,6 +64,8 @@ const renderActiveView = (): React.JSX.Element => {
       return <Dashboard />;
     case 'flashcards':
       return <FlashcardsHomeView />;
+    case 'notes':
+      return <NotesHomeView />;
     case 'settings':
       return <SettingsView modules={modules} onToggleModule={toggleModule} />;
     case 'integrations':
