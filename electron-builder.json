@@ -9,12 +9,7 @@
     "buildResources": "build"
   },
   "linux": {
-    "target": ["AppImage", "deb"]
-  },
-  "win": {
-    "target": "nsis"
-  },
-  "mac": {
-    "target": "dmg"
+    "target": ["AppImage", "deb"],
+    "category": "Utility"
   }
 }
